@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
+  </head>
+  <body>
+  
+  <div class="box">
+
+
+<h1>Bienvenue ! </h1>
+<br /><br />
+Voici tous les potins !
+<br /><br />
+
+
+<!-- affiche le gossip ayant l'ID 2 -->
+<% gossip = Gossip.find(2) %>
+<%= gossip.title %> - 
+<% user = gossip.user %>
+<%= user.alias %> ( <%= user.first_name %> )<br />
+
+</div>
+  </body>
+</html>

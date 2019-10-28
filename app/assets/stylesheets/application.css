@@ -1,0 +1,26 @@
+
+body {
+    font-family: 'Nanum Gothic';
+    background-color:#ffffff;
+}
+
+a {color:#339999 !important;
+text-decoration: none;}
+
+a:hover {color:#55BBBB !important;
+text-decoration: none;}
+
+.box {
+    margin:auto;
+    width: 1000px; 
+    border:0px solid #000000;
+}
+
+.header_title {
+    line-height:0px;
+    text-transform: uppercase;
+    font-weight:bold;
+    text-shadow: #ffffff 1px 1px 1px;
+    background-opacity: 0.5;
+    background-image: url('https://images.pexels.com/photos/579216/pexels-photo-579216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
