@@ -6,22 +6,21 @@
   <body>
   
 
-  <% n = params['id']%>
+<% n = params['id']%>
+<% gossip = Gossip.find(n) %>
+<% user = gossip.user %>
+<% u = user.id %>
 
   <div class="box">
 
-
-<h1>Bienvenue ! </h1>
+  GOSSIP N°<%=n%>
+  <h1><%= gossip.title %></h1>
+<strong>
+Proposé par : <a href="/user/<%=u%>"><%= user.alias %></a> <em>(<%= user.first_name %>)</em>
+</strong><br />
+Le <%= gossip.created_at %>
 <br /><br />
-Voici tous les potins !
-<br /><br />
-
-
-<!-- affiche le gossip ayant l'ID n -->
-<% gossip = Gossip.find(n) %>
-<%= gossip.title %> - 
-<% user = gossip.user %>
-<%= user.alias %> ( <%= user.first_name %> )<br />
+<div class="content_box"><%= gossip.content %></div>
 
 </div>
   </body>

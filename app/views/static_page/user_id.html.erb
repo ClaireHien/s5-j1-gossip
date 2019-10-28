@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
+  </head>
+  <body>
+  
+
+
+<% n = params['user_id']%>
+<% user = User.find(n) %>
+
+  <div class="box">
+
+  PROFIL DE<br />
+<h1><%= user.alias %></h1>
+Profil crée le : <%= user.created_at %><br /><br />
+<div class="content_box">
+<strong>INFORMATIONS</strong><br /><br />
+Prénom : <%= user.first_name %><br />
+Nom : <%= user.last_name %><br />
+Age : <%= user.age %><br />
+Email : <%= user.email %><br />
+Description : <%= user.description %>
+</div>
+
+</div>
+  </body>
+</html>

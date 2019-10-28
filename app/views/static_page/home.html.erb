@@ -8,17 +8,23 @@
   <div class="box">
 
 
-<h1>Bienvenue ! </h1>
-<br /><br />
-Voici tous les potins !
-<br /><br />
+<h1>Bienvenue ! </h1><br />
+Voici tous les potins !<br /><br />
+<div class="content_box">
 
+<% n = 2 %>
+<% 11.times do %>
 
-<!-- affiche le gossip ayant l'ID 2 -->
-<% gossip = Gossip.find(2) %>
-<%= gossip.title %> - 
-<% user = gossip.user %>
-<%= user.alias %> ( <%= user.first_name %> )<br />
+    <% gossip = Gossip.find(n) %>
+    <a href="/gossip/<%=n%>"><%= gossip.title %></a> - 
+    <% user = gossip.user %>
+    <%= user.alias %> <em>( <%= user.first_name %> )</em><br />
+    <% n = n + 1 %>
+
+<% end %>
+
+</div>
+
 
 </div>
   </body>

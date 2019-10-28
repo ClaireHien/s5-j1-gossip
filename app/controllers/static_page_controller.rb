@@ -11,6 +11,10 @@ class StaticPageController < ApplicationController
     puts "Welcome"
   end
 
+  def user_id
+    puts "user page"
+  end
+
   def home
     puts "Home"
   end
