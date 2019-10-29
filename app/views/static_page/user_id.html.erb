@@ -12,17 +12,52 @@
 
   <div class="box">
 
-  PROFIL DE<br />
-<h1><%= user.alias %></h1>
-Profil crée le : <%= user.created_at %><br /><br />
-<div class="content_box">
-<strong>INFORMATIONS</strong><br /><br />
-Prénom : <%= user.first_name %><br />
-Nom : <%= user.last_name %><br />
-Age : <%= user.age %><br />
-Email : <%= user.email %><br />
-Description : <%= user.description %>
-</div><br /><br />
+  <div class="card mb-3" style="max-width: 750px; margin:auto;">
+
+  <div class="card-header" style="text-transform:uppercase;">
+    <strong>  <h1><%= user.alias %></h1> </strong>
+  </div>
+
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="https://images.pexels.com/photos/35598/peacock-bird-colorful-blue.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img" alt="img_profile">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+      <p class="card-text"><strong>INFORMATIONS</strong></p>
+      <p class="card-text">
+      Prénom : <%= user.first_name %><br />
+      Nom : <%= user.last_name %><br />
+      Age : <%= user.age %><br />
+      Email : <%= user.email %><br />
+      Description : <%= user.description %></p>
+      <p class="card-text"><small class="text-muted">Profil crée le : <%= user.created_at %></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br /><br />
+<h1 class="text-center">Tous ses gossips</h1>
+<% all_gossip = Gossip.where(user_id: n) %>
+
+<div class="d-flex  flex-wrap justify-content-center">
+
+<% all_gossip.each do |gossip| %>
+  <% id = gossip.id %>
+  <% user = gossip.user %>
+  <div class="card" style="width: 300px; margin:5px;">
+  <div class="card-header" style="text-transform:uppercase;"><strong><%= gossip.title %></strong></div>
+  <div class="card-body">
+    <p class="card-text"> <small class="text-muted">Gossip n°<%= id %></small> <br />
+    <%= user.alias %> <em>( <%= user.first_name %> )</em><br />
+    <span class="badge badge-light align-right"><a href="/gossip/<%=id%>">En lire plus</a></span></p>
+  </div>
+</div>
+<%end%>
+
+</div>
+
 
 </div>
   </body>

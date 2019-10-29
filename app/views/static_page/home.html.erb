@@ -7,20 +7,31 @@
   
   <div class="box">
 
-
 <h1>Bienvenue ! </h1><br />
-Voici tous les potins !<br /><br />
 
-<div class="content_box">
+<%if @gossip %>
+<div class="alert alert-success" role="alert">
+Ton gossip a bien été ajouté !
+</div><br />
+<% end %>
+
+Voici tous les potins !<br /><br />
 
 <% all_gossip = Gossip.all %>
 
+<div class="d-flex  flex-wrap justify-content-center">
+
 <% all_gossip.each do |gossip| %>
   <% id = gossip.id %>
-  Gossip n°<%= id %> - 
-  <a href="/gossip/<%=id%>"><%= gossip.title %></a> - 
   <% user = gossip.user %>
-  <%= user.alias %> <em>( <%= user.first_name %> )</em><br />
+  <div class="card" style="width: 18rem; margin:5px;">
+  <div class="card-header" style="text-transform:uppercase;"><strong><%= gossip.title %></strong></div>
+  <div class="card-body">
+    <p class="card-text"> <small class="text-muted">Gossip n°<%= id %></small> <br />
+    <%= user.alias %> <em>( <%= user.first_name %> )</em><br />
+    <span class="badge badge-light align-right"><a href="/gossip/<%=id%>">En lire plus</a></span></p>
+  </div>
+</div>
 <%end%>
 
 </div>

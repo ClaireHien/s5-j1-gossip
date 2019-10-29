@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
+  </head>
+  <body>
+  
+  <div class="box">
+
+<h1>Bienvenue ! </h1><br />
+
+<div class="alert alert-success" role="alert">
+ <p>Ton gossip a bien été ajouté !</p>
+</div><br />
+
+Voici tous les potins !<br /><br />
+
+<div class="content_box">
+
+<% all_gossip = Gossip.all %>
+
+<% all_gossip.each do |gossip| %>
+  <% id = gossip.id %>
+  Gossip n°<%= id %> - 
+  <a href="/gossip/<%=id%>"><%= gossip.title %></a> - 
+  <% user = gossip.user %>
+  <%= user.alias %> <em>( <%= user.first_name %> )</em><br />
+<%end%>
+
+</div>
+
+
+</div>
+  </body>
+</html>

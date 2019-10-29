@@ -7,6 +7,10 @@ class StaticPageController < ApplicationController
     puts "team"
   end
 
+  def new_gossip
+    puts "team"
+  end
+
   def welcome
     puts "Welcome"
   end

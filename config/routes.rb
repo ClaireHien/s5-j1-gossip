@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   root 'static_page#home'
 
+  resources :gossip, except: [:show] 
+
   get '/contact', to: 'static_page#contact'
+  get '/home', to: 'static_page#home'
   get '/team', to: 'static_page#team'
   get '/welcome/:first_name', to: 'static_page#welcome'
   get '/gossip/:id', to: 'static_page#gossip'

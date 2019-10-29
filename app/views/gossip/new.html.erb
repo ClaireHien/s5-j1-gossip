@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Ajouter un gossip</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
+  </head>
+  <body>
+
+  <div class="box">
+
+	<h1>Ajouter un gossip</h1>
+
+<%if @gossip %>
+	<div class="alert alert-danger" role="alert">
+		<p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+		<ul> <li> <%= @gossip.wrong_gossip %> </ul>
+	</div><br />
+<% end %>
+
+	<form action= <%= gossip_index_path %> method="POST">
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+Titre : <input type="text" name="gossip_title"><br />
+Contenu : <input type="text" name="gossip_content"><br /><br />
+  <input type="submit" value="Envoyer">
+</form>
+
+
+</div>
+  </body>
+</html>
