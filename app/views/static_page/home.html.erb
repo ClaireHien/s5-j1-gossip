@@ -10,18 +10,18 @@
 
 <h1>Bienvenue ! </h1><br />
 Voici tous les potins !<br /><br />
+
 <div class="content_box">
 
-<% n = 2 %>
-<% 50.times do %>
+<% all_gossip = Gossip.all %>
 
-    <% gossip = Gossip.find(n) %>
-    <a href="/gossip/<%=n%>"><%= gossip.title %></a> - 
-    <% user = gossip.user %>
-    <%= user.alias %> <em>( <%= user.first_name %> )</em><br />
-    <% n = n + 1 %>
-
-<% end %>
+<% all_gossip.each do |gossip| %>
+  <% id = gossip.id %>
+  Gossip n°<%= id %> - 
+  <a href="/gossip/<%=id%>"><%= gossip.title %></a> - 
+  <% user = gossip.user %>
+  <%= user.alias %> <em>( <%= user.first_name %> )</em><br />
+<%end%>
 
 </div>
 
