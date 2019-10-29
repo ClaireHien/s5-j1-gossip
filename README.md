@@ -19,6 +19,8 @@ Vous pouvez ensuite vous placer dans votre naviguateur et lancer la page en loca
 http://localhost:4567/
 ~~~
 
+Au niveau du Seed : il a été rempli pour générer *10 profils utilisateur* et *50 gossips* (chacun reliés aléatoirement à un utilisateur)
+
 ***
 ## En quelques mots...
 
