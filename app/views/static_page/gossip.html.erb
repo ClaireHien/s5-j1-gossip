@@ -48,6 +48,24 @@
   </ul>
 </div>
 
+<br /><br />
+<h3>Ajouter un commentaire</h3>
+
+<%if @comment %>
+	<div class="alert alert-danger" role="alert">
+		<p>Nous n'avons pas réussi à ajouter le commentaire</p>
+	</div><br />
+<% end %>
+
+<form action='/comment/<%=n%>' method="POST">
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+Commentaire : <input class="form-control" type="text" name="comment"><br /><br />
+  <input type="submit" value="Envoyer">
+</form>
+
+
+
+
 </div>
   </body>
 </html>

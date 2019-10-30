@@ -31,4 +31,28 @@ class StaticPageController < ApplicationController
     puts "Gossip"
   end
 
+  def create
+
+    puts "#" * 60
+    puts "ceci est le contenu de params :"
+    puts params
+    puts "-" * 10
+    puts params[:id]
+    n = params[:id]
+    puts "#" * 60
+
+    @comment = Comment.new(content: params["comment"], gossip_id: n, user_id: 308)
+    # avec xxx qui sont les données obtenues à partir du formulaire
+    
+    if @comment.save # essaie de sauvegarder en base @gossip
+      puts "------------- comment ajouté"
+      redirect_to "/gossip/#{n}"
+    else
+      puts "------------- comment refusé :"
+      redirect_to "/gossip/#{n}"
+      # sinon, il render la view new (qui est celle sur laquelle on est déjà)
+    end
+
+  end
+
 end
