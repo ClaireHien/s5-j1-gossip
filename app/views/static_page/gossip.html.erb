@@ -21,7 +21,9 @@
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p><%= gossip.content %></p>
-      <a href="<%=edit_gossip_path%>" class="btn btn-primary">Modifier</a>
+      <a href="<%=edit_gossip_path%>" class="btn btn-dark">Modifier</a>
+      <a href="/gossip/<%=n%>" class="btn btn-danger" data-confirm="Êtes-vous sur de vouloir supprimer ce gossip ?"
+      data-method="DELETE">Supprimer</a>
       <footer class="blockquote-footer">
   GOSSIP N°<%=n%> | Proposé par : <a href="/user/<%=u%>"><%= user.alias %></a><cite title="Source Title"> <a href="/city/<%= city.name %>">( <%= city.name %> )</a></cite>, le  <%= gossip.created_at %></footer>
     </blockquote>
