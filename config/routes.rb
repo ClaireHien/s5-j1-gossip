@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root 'static_page#home'
 
-  resources :gossip, except: [:show] 
+  resources :gossip, except: [:show]
+  
+  resources :comment
 
   get '/contact', to: 'static_page#contact'
   get '/home', to: 'static_page#home'
