@@ -25,9 +25,8 @@
 
       <a href="<%=edit_gossip_path%>" class="badge badge-light">Modifier</a>
       <a href="/gossip/<%=n%>" class="badge badge-light" data-confirm="Êtes-vous sur de vouloir supprimer ce gossip ?"
-      data-method="DELETE">Supprimer</a>
-      <p>  
-     <%= gossip.content %></p>
+      data-method="DELETE">Supprimer</a><br /><br />
+      <h3><%= gossip.content %></h3><br />
            <footer class="blockquote-footer">
   GOSSIP N°<%=n%> | Proposé par : <a href="/user/<%=u%>"><%= user.alias %></a><cite title="Source Title"> <a href="/city/<%= city.name %>">( <%= city.name %> )</a></cite>, le  <%= gossip.created_at %></footer>
     </blockquote>
@@ -61,8 +60,8 @@
 
 <form action='/comment/<%=n%>' method="POST">
 <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-Commentaire : <input class="form-control" type="text" name="comment"><br /><br />
-  <input type="submit" value="Envoyer">
+Commentaire : <input class="form-control" type="text" name="comment"><br />
+  <input type="submit" class="btn btn-info" value="Envoyer">
 </form>
 
 

@@ -8,24 +8,25 @@
 
   <div class="box">
   <h1>Editer le commentaire </h1>
+  <% n = @comment.id %>
+<a href="/comment/<%=n%>" class="alerte alerte-light" data-confirm="Êtes-vous sur de vouloir supprimer ce commentaire ?"
+data-method="DELETE">Supprimer le commentaire</a>
+<br /><br />
 
 <br />
 
 <%= form_for @comment do |f| %>
 
   <div class="form-group">
-  <label>Commentaire : </label>
+  <label><h3>Commentaire :</h3> </label>
   <%= f.text_field :content, class: "form-control" %>
   </div>
   <div class="form-group">
-  <button type="submit" class="btn btn-dark">Modifier le commentaire</button>
+  <button type="submit" class="btn btn-info">Modifier le commentaire</button>
   </div>
 
-<% end %>
+<% end %><br />
   
-<% n = @comment.id %>
-<a href="/comment/<%=n%>" class="btn btn-danger" data-confirm="Êtes-vous sur de vouloir supprimer ce commentaire ?"
-data-method="DELETE">Supprimer le commentaire</a>
 
 </div>
   </body>
