@@ -1,21 +1,26 @@
 require 'faker'
  
-def new_user #efface les user et en crée 20 nouveaux
+def new_city 
+  10.times do
+    name = Faker::Address.city
+    City.create!(name: name)
+    puts name
+  end
 
-  User.destroy_all
+end
 
+def new_user 
   20.times do
+      city = City.all.sample
       first = Faker::Name.first_name 
       age = rand(7..77)
-      User.create!(first_name: first, last_name: Faker::Name.last_name, age: age, description: Faker::Movie.quote, email: Faker::Internet.email(name: first), alias: Faker::Creature::Cat.name)
-      puts "name : #{first}"
+      User.create!(first_name: first, last_name: Faker::Name.last_name, age: age, description: Faker::Movie.quote, email: Faker::Internet.email(name: first), alias: Faker::Creature::Cat.name, city_id: city.id)
+      puts "name : #{first} (#{city.name})"
   end
   puts "10 profils crées"
 end
 
-def new_gossip #efface les gossips et en crée 50 nouveaux
-
-  Gossip.destroy_all
+def new_gossip 
     
   50.times do
       user = User.all.sample
@@ -28,9 +33,23 @@ def new_gossip #efface les gossips et en crée 50 nouveaux
 end
 
 def create_anonymous #si il a été supprimé
-  User.create!(first_name: "XXX", last_name: "XXX", alias: "Anonymous", age: 0, email: "anonymous@anonymous.com", description: "Compte PNJ")
+  city = City.all.sample
+  anonymous = User.create!(first_name: "XXX", last_name: "XXX", alias: "Anonymous", age: 0, email: "anonymous@anonymous.com", description: "Compte PNJ", city_id: city.id)
+  puts "#{anonymous.alias}, ID : #{anonymous.id}"
 end
 
-# new_user #!!! ne pas supprimer pour ne pas supprimer anonymous > penser à éditer dans le formulaire si c'est fait
-# create_anonymous
-new_gossip
+def delete
+  Gossip.destroy_all
+  User.destroy_all
+  City.destroy_all
+end
+
+def perform
+  #delete
+  new_city
+  new_user
+  create_anonymous
+  new_gossip
+end
+
+perform
