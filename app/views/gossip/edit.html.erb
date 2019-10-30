@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Editer</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
+  </head>
+  <body>
+  
+  <% gossip = Gossip.find(params[:id]) %>
+
+  <div class="box">
+  <h1>Editer le gossip </h1>
+
+
+<%if @gossip %>
+	<div class="alert alert-danger" role="alert">
+    <p>Nous n'avons pas réussi à modifier le potin : </p>
+    <ul><li>Les champs titre et contenu doivent être obligatoirement remplis
+    <li>Le titre du Gossip doit contenir entre 3 et 14 caractères
+    </ul>
+	</div><br />
+<% end %>
+
+<%= form_for gossip do |f| %>
+
+  <div class="form-group">
+  <label>Titre du gossip</label>
+  <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  <label>Contenu du gossip</label>
+  <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  <button type="submit" class="btn btn-dark">Modifier l'article</button>
+  </div>
+
+  <% end %>
+
+
+
+
+
+</div>
+  </body>
+</html>

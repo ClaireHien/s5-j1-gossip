@@ -24,6 +24,21 @@ class GossipController < ApplicationController
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)
     end
 
-
   end
+
+  def edit
+    puts "edit"
+  end
+
+  def update
+    @gossip = Gossip.find(params[:id])
+    gossip_params = params.require(:gossip).permit(:title, :content)
+
+    if @gossip.update(gossip_params)
+      redirect_to @gossip
+    else
+      render :edit
+    end
+  end
+
 end

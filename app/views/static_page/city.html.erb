@@ -23,7 +23,7 @@
 
     <% all_user.each do |user| %>
         <% u = user.id %>
-       - <%= user.alias %> <a href="/user/<%=u%>">( voir le profil )</a><br />
+       - <strong><%= user.alias %></strong> <small><a href="/user/<%=u%>">( voir le profil )</a></small><br />
     
     <% end%>
 
