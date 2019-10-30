@@ -5,30 +5,18 @@
   </head>
   <body>
   
+  <% t = params[:tag] %>
+  <% tag = Tag.find(t) %>
+
   <div class="box">
 
-<h1>Bienvenue ! </h1><br />
+<h1><%= tag.name %> </h1><br />
 
-<%if @gossip %>
-<div class="alert alert-success" role="alert">
-Ton gossip a bien été ajouté !
-</div><br />
-<% end %>
-
-Afficher les potins de la catégorie : <br /><br />
-<% all_tag = Tag.all %>
-<% all_tag.each do |t| %>
-  <span class="badge badge-light"><a href="tag/<%= t.id %>"><%= t.name %></a></span>
-  <%end%>
-  <br /><br />
-
-Tous les potins :<br /><br />
-
-<% all_gossip = Gossip.all %>
+<% tag_gossip = Gossip.where(tag_id: t) %>
 
 <div class="d-flex  flex-wrap justify-content-center">
 
-<% all_gossip.each do |gossip| %>
+<% tag_gossip.each do |gossip| %>
   <% id = gossip.id %>
   <% tag = gossip.tag %>
   <% user = gossip.user %>
@@ -52,6 +40,7 @@ Tous les potins :<br /><br />
 <%end%>
 
 </div>
+
 
 
 </div>

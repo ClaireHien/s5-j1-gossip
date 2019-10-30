@@ -31,6 +31,10 @@ class StaticPageController < ApplicationController
     puts "Gossip"
   end
 
+  def tag
+    puts "tag"
+  end
+
   def create
 
     puts "#" * 60

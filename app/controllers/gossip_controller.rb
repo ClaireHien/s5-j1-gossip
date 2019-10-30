@@ -11,8 +11,9 @@ class GossipController < ApplicationController
     puts "ceci est le contenu de params :"
     puts params
     puts "#" * 60
+    puts params["tag"]
 
-    @gossip = Gossip.new(title: params["gossip_title"], content: params["gossip_content"], user_id: 308)
+    @gossip = Gossip.new(title: params["gossip_title"], content: params["gossip_content"], tag_id: params["tag"], user_id: 308)
     # avec xxx qui sont les données obtenues à partir du formulaire
     
     if @gossip.save # essaie de sauvegarder en base @gossip

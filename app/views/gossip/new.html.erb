@@ -16,10 +16,19 @@
 	</div><br />
 <% end %>
 
-	<form action= <%= gossip_index_path %> method="POST">
+	<form action= <%= gossip_index_path %> method="POST" id="new_gos">
 <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-Titre : <input type="text" name="gossip_title"><br />
-Contenu : <input type="text" name="gossip_content"><br /><br />
+Titre : <input class="form-control" type="text" name="gossip_title"><br />
+
+Catégorie : <select name="tag" form="new_gos">
+<% all_tag = Tag.all %>
+<% all_tag.each do |t| %>
+  <option value="<%=t.id%>"><%=t.name%></option>
+
+  <%end%>
+</select><br /><br />
+
+Contenu : <input class="form-control" type="text" name="gossip_content"><br /><br />
   <input type="submit" value="Envoyer">
 </form>
 

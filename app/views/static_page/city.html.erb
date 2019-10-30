@@ -31,6 +31,41 @@
   </div>
 </div>
 
+<br /><br />
+<h2>Tous les potins de la ville :</h2>
+
+<div class="d-flex  flex-wrap justify-content-center">
+
+<% all_user.each do |user| %>
+  <% u = user.id %>
+  <% all_gossip = Gossip.where(user_id: u)%>
+
+
+    <% all_gossip.each do |gossip| %>
+
+      <% id = gossip.id %>
+      <% tag = gossip.tag %>
+      <% user = gossip.user %>
+      <% city = user.city %>
+      <% com = Comment.where(gossip_id: id) %>
+    
+      <div class="card" style="width: 18rem; margin:5px;">
+      <div class="card-header" style="text-transform:uppercase;"><strong><%= gossip.title %></strong></div>
+      <div class="card-body">
+        <p class="card-text">
+        <small class="text-muted">Gossip n°<%= id %> | 
+        <strong><%= com.length %> commentaires</strong></small> <br />
+        <a href="/user/<%=user.id%>"><%= user.alias %></a> <em><a href="/city/<%= city.name %>">( <%= city.name %> )</a></em><br />
+        <span class="badge badge-light align-right"><a href="/gossip/<%=id%>">En lire plus</a></span> 
+         
+        <span class="badge badge-light"><a href="/tag/<%= tag.id %>"><%= tag.name %></a></span></p>
+
+      </div>
+      </div>
+    <%end%>
+
+<%end%>
+</div>
 
 
 

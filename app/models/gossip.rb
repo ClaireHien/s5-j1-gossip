@@ -1,6 +1,8 @@
 class Gossip < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  belongs_to :tag
+  
   validates :title, presence: true, length: { in: 3..14 }
   validates :content, presence: true
 

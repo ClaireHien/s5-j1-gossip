@@ -23,10 +23,11 @@ end
 def new_gossip 
     
   50.times do
-      user = User.all.sample
-      title = Faker::Creature::Animal.name
-      Gossip.create!(title: title, content: Faker::Quote.famous_last_words, user_id: user.id)
-      puts "gossip : #{title}"
+    user = User.all.sample
+    tag = Tag.all.sample
+    title = Faker::Creature::Animal.name
+    Gossip.create!(title: title, content: Faker::Quote.famous_last_words, user_id: user.id, tag_id: tag.id)
+    puts "gossip : #{title}"
   end
   puts "50 gossips crées"
 
@@ -39,7 +40,7 @@ def create_anonymous #si il a été supprimé
 end
 
 def new_comment 
-  100.times do
+  200.times do
     user = User.all.sample
     gossip = Gossip.all.sample
     Comment.create!(content: Faker::Quote.famous_last_words, gossip_id: gossip.id, user_id: user.id)
@@ -47,19 +48,35 @@ def new_comment
   end
 end
 
+def new_tag 
+  Tag.create!(name: "Fantasie")
+  Tag.create!(name: "Romance")
+  Tag.create!(name: "Triller")
+  Tag.create!(name: "Western")
+  Tag.create!(name: "Horreur")
+  Tag.create!(name: "Science Fiction")
+  Tag.create!(name: "Bit-Lit")
+  Tag.create!(name: "Autobiographie")
+  Tag.create!(name: "Comedie")
+  Tag.create!(name: "Historique")
+  puts "10 tags crées"
+end
+
 def delete
   Gossip.destroy_all
-  User.destroy_all
-  City.destroy_all
+  Tag.destroy_all
+  #User.destroy_all
+  #City.destroy_all
 end
 
 def perform #décommenter les méthodes à lancer
-  #delete
+  delete
   #new_city
   #new_user
   #create_anonymous
-  #new_gossip
-  #new_comment
+  new_tag
+  new_gossip
+  new_comment
 end
 
 perform
