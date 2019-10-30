@@ -23,6 +23,9 @@
 
 <% end %>
   
+<% n = @comment.id %>
+<a href="/comment/<%=n%>" class="btn btn-danger" data-confirm="Êtes-vous sur de vouloir supprimer ce commentaire ?"
+data-method="DELETE">Supprimer le commentaire</a>
 
 </div>
   </body>

@@ -25,12 +25,18 @@ Voici tous les potins !<br /><br />
   <% id = gossip.id %>
   <% user = gossip.user %>
   <% city = user.city %>
+  <% com = Comment.where(gossip_id: id) %>
+
   <div class="card" style="width: 18rem; margin:5px;">
   <div class="card-header" style="text-transform:uppercase;"><strong><%= gossip.title %></strong></div>
   <div class="card-body">
-    <p class="card-text"> <small class="text-muted">Gossip n°<%= id %></small> <br />
+    <p class="card-text">
+    <small class="text-muted">Gossip n°<%= id %> | 
+    <strong><%= com.length %> commentaires</strong></small> <br />
     <a href="/user/<%=user.id%>"><%= user.alias %></a> <em><a href="/city/<%= city.name %>">( <%= city.name %> )</a></em><br />
     <span class="badge badge-light align-right"><a href="/gossip/<%=id%>">En lire plus</a></span></p>
+
+
   </div>
 </div>
 <%end%>
