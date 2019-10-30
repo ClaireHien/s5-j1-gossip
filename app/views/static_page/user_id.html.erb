@@ -29,7 +29,7 @@
       <p class="card-text">
       Prénom : <%= user.first_name %><br />
       Nom : <%= user.last_name %><br />
-      Ville : <%= city.name %><br />
+      Ville : <a href="/city/<%= city.name %>"><%= city.name %></a><br />
       Age : <%= user.age %><br />
       Email : <%= user.email %><br />
       Description : <%= user.description %></p>
@@ -52,7 +52,7 @@
   <div class="card-header" style="text-transform:uppercase;"><strong><%= gossip.title %></strong></div>
   <div class="card-body">
     <p class="card-text"> <small class="text-muted">Gossip n°<%= id %></small> <br />
-    <%= user.alias %> <em>( <%= city.name %> )</em><br />
+    <%= user.alias %> <em><a href="/city/<%= city.name %>">( <%= city.name %> )</a></em><br />
     <span class="badge badge-light align-right"><a href="/gossip/<%=id%>">En lire plus</a></span></p>
   </div>
 </div>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_page#contact'
   get '/home', to: 'static_page#home'
   get '/team', to: 'static_page#team'
+  get '/city/:city', to: 'static_page#city'
   get '/welcome/:first_name', to: 'static_page#welcome'
   get '/gossip/:id', to: 'static_page#gossip'
   get '/user/:user_id', to: 'static_page#user_id'

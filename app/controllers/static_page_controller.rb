@@ -11,6 +11,10 @@ class StaticPageController < ApplicationController
     puts "team"
   end
 
+  def city
+    puts "city"
+  end
+
   def welcome
     puts "Welcome"
   end

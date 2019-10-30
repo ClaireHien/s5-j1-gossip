@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
+  </head>
+  <body>
+  
+
+<% name = params['city']%>
+<% city = City.find_by(name: name) %>
+<% n = city.id %>
+<% all_user = User.where(city_id: n) %>
+
+
+  <div class="box">
+
+<div class="card">
+  <div class="card-header" style="text-transform:uppercase;">
+    <strong>  <h1><%= name %></h1> </strong>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">Les utilisateurs habitants à <%=name%> : <br />
+
+    <% all_user.each do |user| %>
+        <% u = user.id %>
+       - <%= user.alias %> <a href="/user/<%=u%>">( voir le profil )</a><br />
+    
+    <% end%>
+
+    </blockquote>
+  </div>
+</div>
+
+
+
+
+</div>
+  </body>
+</html>
