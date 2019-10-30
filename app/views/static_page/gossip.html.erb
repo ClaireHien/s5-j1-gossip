@@ -28,8 +28,25 @@
   GOSSIP N°<%=n%> | Proposé par : <a href="/user/<%=u%>"><%= user.alias %></a><cite title="Source Title"> <a href="/city/<%= city.name %>">( <%= city.name %> )</a></cite>, le  <%= gossip.created_at %></footer>
     </blockquote>
   </div>
-</div>
+  </div>
+<br /><br />
+  <% all_comment = Comment.where(gossip_id: n)%>
+<div class="card">
+  <div class="card-header">
+    Commentaires
+  </div>
+  <ul class="list-group list-group-flush">
+  
+  <% all_comment.each do |comment| %>
+    <% user2 = comment.user %>
+    <% u2 = user2.id %>
+    <li class="list-group-item"><%= comment.content %> <footer class="blockquote-footer">
+    Posté par <a href="/user/<%=u2%>"><%= user2.alias %></a>, le <%= comment.created_at %>
+    </footer></li>
 
+  <%end%>
+  </ul>
+</div>
 
 </div>
   </body>

@@ -38,18 +38,28 @@ def create_anonymous #si il a été supprimé
   puts "#{anonymous.alias}, ID : #{anonymous.id}"
 end
 
+def new_comment 
+  100.times do
+    user = User.all.sample
+    gossip = Gossip.all.sample
+    Comment.create!(content: Faker::Quote.famous_last_words, gossip_id: gossip.id, user_id: user.id)
+    puts "Commentaire rattaché à #{gossip.title}, posté par #{user.alias}"
+  end
+end
+
 def delete
   Gossip.destroy_all
   User.destroy_all
   City.destroy_all
 end
 
-def perform
+def perform #décommenter les méthodes à lancer
   #delete
-  new_city
-  new_user
-  create_anonymous
-  new_gossip
+  #new_city
+  #new_user
+  #create_anonymous
+  #new_gossip
+  #new_comment
 end
 
 perform
