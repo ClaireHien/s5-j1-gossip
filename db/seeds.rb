@@ -66,7 +66,16 @@ def new_tag
   puts "10 tags crées"
 end
 
+def new_like 
+  300.times do 
+    user = User.all.sample
+    gossip = Gossip.all.sample
+    Like.create(user_id: user.id, gossip_id: gossip.id)
+  end
+end
+
 def delete
+  Like.destroy_all
   Gossip.destroy_all
   Tag.destroy_all
   User.destroy_all
@@ -83,6 +92,7 @@ def perform #décommenter les méthodes à lancer
   new_tag
   new_gossip
   new_comment
+  new_like
 end
 
 perform
