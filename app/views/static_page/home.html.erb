@@ -8,7 +8,7 @@
   <div class="box">
 
 <h1>Bienvenue 
-<% unless current_user %><%else%>
+<% unless current_user %> Invité !<%else%>
 <%= current_user.alias %> !
 <%end%>
 </h1><br />
