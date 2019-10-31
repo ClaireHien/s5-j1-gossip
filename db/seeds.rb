@@ -2,16 +2,15 @@ require 'faker'
  
 def new_city 
   10.times do
-    name = Faker::Address.city
+    name = Faker::Games::Pokemon.location
     City.create!(name: name)
     puts name
   end
-
-  without_city
 end
 
 def without_city
   City.create!(name: "Aucune ville")
+  puts "Aucune ville"
 end
 
 def new_user 
@@ -23,8 +22,6 @@ def new_user
       puts "name : #{first} (#{city.name})"
   end
   puts "10 profils crées"
-
-  create_anonymous
 end
 
 def new_gossip 
@@ -78,8 +75,11 @@ end
 
 def perform #décommenter les méthodes à lancer
   delete
+
   new_city
+    without_city
   new_user
+    create_anonymous
   new_tag
   new_gossip
   new_comment
