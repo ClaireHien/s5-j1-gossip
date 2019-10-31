@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :comment
   resources :user
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :session, only: [:new, :create, :destroy]
 
   get '/contact', to: 'static_page#contact'
   get '/home', to: 'static_page#home'
