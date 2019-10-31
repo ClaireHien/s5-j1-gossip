@@ -50,7 +50,7 @@ class StaticPageController < ApplicationController
     n = params[:id]
     puts "#" * 60
 
-    @comment = Comment.new(content: params["comment"], gossip_id: n, user_id: 308)
+    @comment = Comment.new(content: params["comment"], gossip_id: n, user_id: current_user.id)
     # avec xxx qui sont les données obtenues à partir du formulaire
     
     if @comment.save # essaie de sauvegarder en base @gossip
