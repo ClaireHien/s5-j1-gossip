@@ -24,9 +24,11 @@
       <span class="badge badge-light"><a href="/tag/<%= tag.id %>"><%= tag.name %></a></span>
 
       <% unless current_user %><%else%>
+      <%if current_user.id == u %>
       <a href="<%=edit_gossip_path%>" class="badge badge-light">Modifier</a>
       <a href="/gossip/<%=n%>" class="badge badge-light" data-confirm="Êtes-vous sur de vouloir supprimer ce gossip ?"
       data-method="DELETE">Supprimer</a>
+      <%end%>
       <%end%>
       <br /><br />
 
@@ -56,8 +58,10 @@
     <footer class="blockquote-footer">
    
 <% unless current_user %><%else%>
- <a href="/comment/<%=c%>/edit">EDITER</a> <%end%>| 
-    Posté par <a href="/user/<%=u2%>"><%= user2.alias %></a><cite title="Source Title"> <a href="/city/<%= city.name %>">( <%= city.name %> )</a></cite>, le <%= comment.created_at %>
+<%if current_user.id == u2 %>
+ <a href="/comment/<%=c%>/edit">EDITER</a> | 
+ <%end%>
+ <%end%> Posté par <a href="/user/<%=u2%>"><%= user2.alias %></a><cite title="Source Title"> <a href="/city/<%= city.name %>">( <%= city.name %> )</a></cite>, le <%= comment.created_at %>
     </footer></li>
 
   <%end%>

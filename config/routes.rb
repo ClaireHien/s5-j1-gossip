@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'session#profile'
   get '/home', to: 'static_page#home'
   get '/team', to: 'static_page#team'
+  get '/check', to: 'static_page#check'
   get '/city/:city', to: 'static_page#city'
   get '/tag/:tag', to: 'static_page#tag'
   get '/welcome/:first_name', to: 'static_page#welcome'

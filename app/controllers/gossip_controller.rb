@@ -1,5 +1,6 @@
 class GossipController < ApplicationController
-  before_action :authenticate_user, only: [:new, :edit]
+  before_action :authenticate_user, only: [:new]
+  before_action :check_user, only: [:edit, :destroy, :update]
 
   def new
       puts "#" * 30
@@ -57,6 +58,12 @@ class GossipController < ApplicationController
     unless current_user
       flash[:danger] = "Please log in."
       redirect_to new_session_path
+    end
+  end
+
+  def check_user
+    if current_user.id != params[:id]
+      redirect_to "/check"
     end
   end
 

@@ -4,6 +4,10 @@ class StaticPageController < ApplicationController
     puts "contact"
   end
 
+  def check
+    puts "check"
+  end
+
   def team
     puts "team"
   end
