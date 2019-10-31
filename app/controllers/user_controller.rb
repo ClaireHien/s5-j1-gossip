@@ -17,10 +17,10 @@ class UserController < ApplicationController
     # avec xxx qui sont les données obtenues à partir du formulaire
     
     if @user.save # essaie de sauvegarder en base @gossip
-      puts "------------- gossip ajouté"
+      puts "------------- compte crée"
       render "static_page/home"
     else
-      puts "------------- gossip refusé :"
+      puts "------------- inscription refusée :"
       render "/user/new"
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)
     end

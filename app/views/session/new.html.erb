@@ -8,6 +8,26 @@
 
 <h1>Connexion</h1><br />
 
+<%if @user %>
+	<div class="alert alert-danger" role="alert">
+        <p>Nous n'avons pas réussi à vous connecter : 
+        <ul><li>Email ou mot de passe incorrect</ul></p>
+	</div><br />
+<% end %>
+
+<form action= <%= session_index_path %> method="POST" id="new_user">
+  <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+ 
+
+  Email : <input class="form-control" type="text" name="u_email"><br />
+
+  Mot de passe : <input class="form-control" type="text" name="u_password"><br /><br />
+
+    <input type="submit" value="Se connecter" class="btn btn-info">
+  </form>
+
+
+
 </div>
 </body>
 </html>
