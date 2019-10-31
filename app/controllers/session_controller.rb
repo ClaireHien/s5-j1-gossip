@@ -1,9 +1,10 @@
 class SessionController < ApplicationController
-  include TonHelper
+  before_action :authenticate_user, only: [:profile]
 
   def new
     puts "new"
   end
+  
 
   def create
     puts "create"
@@ -31,5 +32,15 @@ class SessionController < ApplicationController
   def destroy
     session.delete(:user_id)
   end
+
+  private
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
+  end
+
 
 end

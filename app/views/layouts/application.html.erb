@@ -30,19 +30,24 @@
       <li class="nav-item">
         <a class="nav-link" href="/contact">Contact</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/gossip/new">Ajouter un gossip</a>
-      </li>
+      <% unless current_user %>
       <li class="nav-item">
         <a class="nav-link" href="<%=new_user_path%>">S'inscrire</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<%=new_session_path%>">Se connecter</a>
       </li>
+      <% else %>
       <li class="nav-item">
-        <font class="nav-link"><%= link_to "Se déconnecter", session_path(session.id), method: :delete %></font>
+      <% pro = current_user.id %>
+        <a class="nav-link" href="/user/<%=pro%>">Profil</a>
       </li>
+      <li class="nav-item">
+        <font class="nav-link"><%= link_to "Se déconnecter", session_path(session.id), method: :delete%></font>
+      </li>
+
     </ul>
+      <% end %>
   </div>
 </nav>
 

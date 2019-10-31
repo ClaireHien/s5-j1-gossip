@@ -1,12 +1,12 @@
 <html>
   <head>
-    <title>Connexion</title>
+    <title>Profil</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
   </head>
   <body>
   <div class="box">
 
-  <h2>Bienvenue <%= User.find_by(id: session[:user_id]).alias %> !</h2>
+  <h2>Bienvenue <%= current_user.alias %> !</h2>
 
 </div>
 </body>

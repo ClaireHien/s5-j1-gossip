@@ -23,9 +23,13 @@
     <blockquote class="blockquote mb-0">
       <span class="badge badge-light"><a href="/tag/<%= tag.id %>"><%= tag.name %></a></span>
 
+      <% unless current_user %><%else%>
       <a href="<%=edit_gossip_path%>" class="badge badge-light">Modifier</a>
       <a href="/gossip/<%=n%>" class="badge badge-light" data-confirm="Êtes-vous sur de vouloir supprimer ce gossip ?"
-      data-method="DELETE">Supprimer</a><br /><br />
+      data-method="DELETE">Supprimer</a>
+      <%end%>
+      <br /><br />
+
       <h3><%= gossip.content %></h3><br />
            <footer class="blockquote-footer">
   GOSSIP N°<%=n%> | Proposé par : <a href="/user/<%=u%>"><%= user.alias %></a><cite title="Source Title"> <a href="/city/<%= city.name %>">( <%= city.name %> )</a></cite>, le  <%= gossip.created_at %></footer>
@@ -50,7 +54,9 @@
     <%= comment.content %>
     
     <footer class="blockquote-footer">
-    <a href="/comment/<%=c%>/edit">EDITER</a> | 
+   
+<% unless current_user %><%else%>
+ <a href="/comment/<%=c%>/edit">EDITER</a> <%end%>| 
     Posté par <a href="/user/<%=u2%>"><%= user2.alias %></a><cite title="Source Title"> <a href="/city/<%= city.name %>">( <%= city.name %> )</a></cite>, le <%= comment.created_at %>
     </footer></li>
 
@@ -58,6 +64,7 @@
   </ul>
 </div>
 
+<% unless current_user %><%else%>
 <br /><br />
 <h3>Ajouter un commentaire</h3>
 
@@ -66,6 +73,7 @@
 Commentaire : <input class="form-control" type="text" name="comment"><br />
   <input type="submit" class="btn btn-info" value="Envoyer">
 </form>
+<%end%>
 
 
 

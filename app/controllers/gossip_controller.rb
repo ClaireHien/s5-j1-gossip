@@ -1,4 +1,6 @@
 class GossipController < ApplicationController
+  before_action :authenticate_user, only: [:new, :edit]
+
   def new
       puts "#" * 30
       puts "new"
@@ -47,4 +49,16 @@ class GossipController < ApplicationController
     @gossip.destroy
     redirect_to "/"
   end
+
+
+  private
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
+  end
+
+
 end

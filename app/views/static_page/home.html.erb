@@ -7,7 +7,11 @@
   
   <div class="box">
 
-<h1>Bienvenue ! </h1><br />
+<h1>Bienvenue 
+<% unless current_user %><%else%>
+<%= current_user.alias %> !
+<%end%>
+</h1><br />
 
 <%if @gossip %>
 <div class="alert alert-success" role="alert">
@@ -32,7 +36,9 @@ Afficher les potins de la catégorie : <br /><br />
   <%end%>
   <br /><br />
 
-Tous les potins :<br /><br />
+Tous les potins :
+<a href="/gossip/new"><div class="btn btn-info" style="float:right;">Ajouter un gossip</div></a><br />
+<br /><br />
 
 <% all_gossip = Gossip.all %>
 

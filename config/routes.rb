@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :gossip, except: [:show]
   
   resources :comment
-  resources :user
+  resources :user, except: [:show]
 
   resources :session, only: [:new, :create, :destroy]
 
