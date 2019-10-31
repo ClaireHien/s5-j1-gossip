@@ -23,10 +23,30 @@
   <div class="card-body">
     <blockquote class="blockquote mb-0">
 
-    <a href="/gossip/<%= n %>/like" class="badge badge-light" data-method="POST">
-      <span class="badge badge-light">
+    <% unless current_user %>
+    
+    <span class="badge badge-light">
       <%= like.length %> likes </span>
-    </a>
+      
+      <%else%>
+
+          <% like_exist = Like.find_by(gossip_id: n, user_id: current_user.id) %>
+          <%if like_exist != nil %>
+
+        <a href="/gossip/<%= n%>/like/<%= like_exist.id %>" class="badge badge-light" data-method="DELETE">
+        <span class="badge badge-light">
+        <%= like.length %> likes </span>
+      </a>
+
+          <%else%>
+        <a href="/gossip/<%= n %>/like" class="badge badge-light" data-method="POST">
+          <span class="badge badge-light">
+          <%= like.length %> likes </span>
+        </a>
+
+          <%end%>
+
+      <%end%>
     
       <span class="badge badge-light"><a href="/tag/<%= tag.id %>"><%= tag.name %></a></span>
 

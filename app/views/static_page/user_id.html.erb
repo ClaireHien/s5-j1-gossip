@@ -49,10 +49,16 @@
   <% id = gossip.id %>
   <% user = gossip.user %>
   <% tag = gossip.tag %>
+  <% com = Comment.where(gossip_id: id)%>
+  <% like = Like.where(gossip_id: id)%>
+
   <div class="card" style="width: 300px; margin:5px;">
   <div class="card-header" style="text-transform:uppercase;"><strong><%= gossip.title %></strong></div>
   <div class="card-body">
-    <p class="card-text"> <small class="text-muted">Gossip n°<%= id %></small> <br />
+    <p class="card-text"> 
+    <small class="text-muted">Gossip n°<%= id %><br />
+    <%= like.length %> likes | 
+    <strong><%= com.length %> commentaires</strong></small> <br />
     <%= user.alias %> <em><a href="/city/<%= city.name %>">( <%= city.name %> )</a></em><br />
     <span class="badge badge-light align-right"><a href="/gossip/<%=id%>">En lire plus</a></span>
     <span class="badge badge-light"><a href="/tag/<%= tag.id %>"><%= tag.name %></a></span></p>
@@ -63,6 +69,8 @@
 
 </div>
 
+
+<h1 class="text-center">Tous ses likes</h1>
 
 </div>
   </body>
