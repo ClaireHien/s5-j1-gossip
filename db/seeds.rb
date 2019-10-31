@@ -19,7 +19,7 @@ def new_user
       city = City.all.sample
       first = Faker::Name.first_name 
       age = rand(7..77)
-      User.create!(first_name: first, last_name: Faker::Name.last_name, age: age, description: Faker::Movie.quote, email: Faker::Internet.email(name: first), alias: Faker::Creature::Cat.name, city_id: city.id)
+      User.create!(first_name: first, last_name: Faker::Name.last_name, age: age, description: Faker::Movie.quote, email: Faker::Internet.email(name: first), alias: Faker::Creature::Cat.name, city_id: city.id, password: Faker::Lorem.characters(number: 10))
       puts "name : #{first} (#{city.name})"
   end
   puts "10 profils crées"
@@ -42,7 +42,7 @@ end
 
 def create_anonymous #si il a été supprimé
   city = City.all.sample
-  anonymous = User.create!(first_name: "XXX", last_name: "XXX", alias: "Anonymous", age: 0, email: "anonymous@anonymous.com", description: "Compte PNJ", city_id: city.id)
+  anonymous = User.create!(first_name: "XXX", last_name: "XXX", alias: "Anonymous", age: 0, email: "anonymous@anonymous.com", description: "Compte PNJ", city_id: city.id, password: "anonymous")
   puts "#{anonymous.alias}, ID : #{anonymous.id}"
 end
 
@@ -72,14 +72,14 @@ end
 def delete
   Gossip.destroy_all
   Tag.destroy_all
-  #User.destroy_all
-  #City.destroy_all
+  User.destroy_all
+  City.destroy_all
 end
 
 def perform #décommenter les méthodes à lancer
   delete
-  #new_city
-  #new_user
+  new_city
+  new_user
   new_tag
   new_gossip
   new_comment
