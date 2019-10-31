@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :session, only: [:new, :create, :destroy]
 
   get '/contact', to: 'static_page#contact'
+  get '/profile', to: 'session#profile'
   get '/home', to: 'static_page#home'
   get '/team', to: 'static_page#team'
   get '/city/:city', to: 'static_page#city'

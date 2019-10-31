@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  include TonHelper
 
   def new
     puts "new"
@@ -18,8 +19,17 @@ class SessionController < ApplicationController
       render "/session/new"
     else
       puts "------------- connexion effectuée"
+      session[:user_id] = @user.id
       redirect_to "/"
     end
-
   end
+
+  def profile
+    puts "profile"
+  end
+
+  def destroy
+    session.delete(:user_id)
+  end
+
 end

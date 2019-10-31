@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Connexion</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
+  </head>
+  <body>
+  <div class="box">
+
+  <h2>Bienvenue <%= User.find_by(id: session[:user_id]).alias %> !</h2>
+
+</div>
+</body>
+</html>

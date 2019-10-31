@@ -1,4 +1,6 @@
 class StaticPageController < ApplicationController
+  include TonHelper
+  
   def contact
     puts "contact"
   end
