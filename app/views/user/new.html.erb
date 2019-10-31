@@ -8,7 +8,48 @@
 
   <div class="box">
 
-  <h1>Inscription</h1>
+  <h1>Inscription</h1><br /><br />
+
+  <%if @user %>
+	<div class="alert alert-danger" role="alert">
+		<p>Nous n'avons pas réussi a valider votre inscription</p>
+		<ul> <li> <%= @user.wrong_user %> </ul>
+	</div><br />
+<% end %>
+
+	<form action= <%= user_index_path %> method="POST" id="new_user">
+  <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+  Prénom : <input class="form-control" type="text" name="u_first_name"><br />
+  Nom : <input class="form-control" type="text" name="u_last_name"><br />
+  Age : <select name="u_age" form="u_age">
+    <% n = 10 %>
+    <% 81.times do %>
+      <option value="<%= n %>"><%= n %></option>
+      <% n = n + 1 %>
+    <% end %>
+  </select><br /><br />
+
+  Ville : <select name="u_city" form="new_user">
+  <% all_city = City.all %>
+  <% all_city.each do |c| %>
+    <option value="<%=c.id%>"><%=c.name%></option>
+  <%end%>
+  </select><br /><br />
+  
+  Description : <input class="form-control" type="text" name="u_description"><br /><br />
+  <div class="separator"> </div><br />
+
+  Nom d'utilisateur : <input class="form-control" type="text" name="u_alias"><br />
+
+  Email : <input class="form-control" type="text" name="u_email"><br />
+
+  Mot de passe : <input class="form-control" type="text" name="u_password"><br /><br />
+
+    <input type="submit" value="Envoyer" class="btn btn-info">
+  </form>
+  
+  
+
 
 
 </div>

@@ -7,4 +7,14 @@ class User < ApplicationRecord
   validates :alias, presence: true
   validates :email, presence: true
   validates :password, presence: true, length: { minimum: 6 }
+
+  def wrong_user
+    if self.errors.any? 
+      self.errors.full_messages.each do |message|
+        puts message
+        return message
+      end
+    end
+  end
+  
 end

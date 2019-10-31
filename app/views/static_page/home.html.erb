@@ -15,6 +15,14 @@ Ton gossip a bien été ajouté !
 </div><br />
 <% end %>
 
+<%if @user %>
+<div class="alert alert-success" role="alert">
+Ton compte a bien été crée ! 
+</div><br />
+<% end %>
+
+
+
 Afficher les potins de la catégorie : <br /><br />
 <% all_tag = Tag.all %>
 <% all_tag.each do |t| %>

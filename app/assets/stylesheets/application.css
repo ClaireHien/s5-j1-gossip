@@ -32,3 +32,9 @@ text-decoration: none;}
     font-size:20px; 
     padding:5px 0px 5px 30px;
 }
+
+.separator {
+    border-bottom: #339999 1px dotted; 
+    width: 50%;
+    margin: auto;
+}
