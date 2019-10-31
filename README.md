@@ -32,11 +32,13 @@ Vous pouvez profiter du gossip project en vous connectant sur **le compte Anonym
 email : anonymous@anonymous.com
 MDP : anonymous
 ~~~
+Ce profil est déjà rempli de gossip, commentaires et likes.
+Mais vous pouvez également **créer votre propre compte** publier, commenter et liker ce qui vous plait !
 
 ***
 ## En quelques mots...
 
-* **En tant qu'invité**, vous ne pourrez que déhambuler sur les différentes pages (vous serez redirigez vers la page de connexion si vous voulez publier un gossip)
+* **En tant qu'invité**, vous ne pourrez que déhambuler sur les différentes pages (vous serez redirigé vers la page de connexion si vous voulez publier un gossip)
 
 * Vous pouvez également **trier les gossips par catégories** (Tag) en cliquant sur les boutons depuis la page d'accueil ou depuis une page Tag
 
