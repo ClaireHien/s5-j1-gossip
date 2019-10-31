@@ -9,6 +9,14 @@
   <% tag = Tag.find(t) %>
 
   <div class="box">
+  Afficher une autre catégorie de potin : <br /><br />
+  <% all_tag = Tag.all %>
+  <% all_tag.each do |t| %>
+    <span class="badge badge-light"><a href="/tag/<%= t.id %>"><%= t.name %></a></span>
+    <%end%>
+    <a href="/"><span class="badge badge-light">Tous les potins</span></a>
+    <br /><br />
+  
 
 <h1><%= tag.name %> </h1><br />
 

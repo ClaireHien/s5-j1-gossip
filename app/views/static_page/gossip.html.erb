@@ -33,6 +33,7 @@
   </div>
   </div>
 <br /><br />
+
   <% all_comment = Comment.where(gossip_id: n)%>
 <div class="card">
   <div class="card-header">
@@ -44,8 +45,10 @@
     <% user2 = comment.user %>
     <% u2 = user2.id %>
     <% c = comment.id %>
+
     <li class="list-group-item">
     <%= comment.content %>
+    
     <footer class="blockquote-footer">
     <a href="/comment/<%=c%>/edit">EDITER</a> | 
     Posté par <a href="/user/<%=u2%>"><%= user2.alias %></a><cite title="Source Title"> <a href="/city/<%= city.name %>">( <%= city.name %> )</a></cite>, le <%= comment.created_at %>
