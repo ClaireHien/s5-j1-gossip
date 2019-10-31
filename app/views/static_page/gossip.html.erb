@@ -12,6 +12,7 @@
 <% city = user.city %>
 <% u = user.id %>
 <% tag = gossip.tag %>
+<% like = Like.where(gossip_id: n) %>
 
   <div class="box">
 
@@ -21,6 +22,12 @@
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
+
+    <a href="/gossip/<%= n %>/like" class="badge badge-light" data-method="POST">
+      <span class="badge badge-light">
+      <%= like.length %> likes </span>
+    </a>
+    
       <span class="badge badge-light"><a href="/tag/<%= tag.id %>"><%= tag.name %></a></span>
 
       <% unless current_user %><%else%>
@@ -43,7 +50,7 @@
   <% all_comment = Comment.where(gossip_id: n)%>
 <div class="card">
   <div class="card-header">
-    Commentaires
+    Commentaires (<%= all_comment.length %>)
   </div>
   <ul class="list-group list-group-flush">
   

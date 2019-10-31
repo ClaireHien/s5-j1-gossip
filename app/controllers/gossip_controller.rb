@@ -62,7 +62,9 @@ class GossipController < ApplicationController
   end
 
   def check_user
-    if current_user.id != params[:id]
+    gos = Gossip.find(params[:id])
+    user = gos.user
+    if current_user.id != user.id
       redirect_to "/check"
     end
   end
