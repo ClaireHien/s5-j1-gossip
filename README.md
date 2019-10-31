@@ -1,8 +1,6 @@
 # THE GOSSIP PROJET 
-### Projet THP validant : Jour 1 Semaine 5
+### Projet THP validant : Jour 4 semaine 5
 ### Par Claire Tardy
-
-Projet réalisé jusqu'au point **2.7** (mise en page sommaire par manque de temps...) 
 
 Pour lancer le projet : 
 
@@ -12,6 +10,8 @@ $ git clone git@github.com:ClaireHien/s5-j1-gossip.git
 Se placer dans le dossier puis : 
 ~~~bash
 $ bundle install
+$ rails db:create
+$ rails db:seed
 $ shotgun -p 4567
 ~~~ 
 Vous pouvez ensuite vous placer dans votre naviguateur et lancer la page en local :
@@ -19,37 +19,44 @@ Vous pouvez ensuite vous placer dans votre naviguateur et lancer la page en loca
 http://localhost:4567/
 ~~~
 
-Au niveau du Seed : il a été rempli pour générer *10 profils utilisateur* et *50 gossips* (chacun reliés aléatoirement à un utilisateur)
+Au niveau du seed, il a été rempli pour supprimer toutes les données existantes et pour relancer aléatoirement de quoi remplir le gossip project : 
+* 10 tags
+* 10 cities (+ 1 city "Aucune ville")
+* 20 users (+1 user "Anonymous")
+* 50 gossips
+* 100 comments
+* 200 likes
+
+Vous pouvez profiter du gossip project en vous connectant sur **le compte Anonymous** : 
+~~~bash
+email : anonymous@anonymous.com
+MDP : anonymous
+~~~
 
 ***
 ## En quelques mots...
 
-**HEADER** présent sur toutes les pages avec une petite barre de navigation (home - team - contact) et un lien cliquable sur la bannière pour retourner à l'accueil
+* **En tant qu'invité**, vous ne pourrez que déhambuler sur les différentes pages (vous serez redirigez vers la page de connexion si vous voulez publier un gossip)
 
-**PAGE D'ACCUEIL** (Home) Vous pourrez avoir un aperçu de tous les gossips et des liens redirigeant vers la page de chacun. 
+* Vous pouvez également **trier les gossips par catégories** (Tag) en cliquant sur les boutons depuis la page d'accueil ou depuis une page Tag
 
-**TEAM** Accessible depuis la barre de navigation : page fixe présentant l'équipe. Vous pouvez cliquer sur les noms des participants pour accéder à leurs profils
+* Depuis une page city, vous pouvez également avoir un aperçu de tous les **utilisateurs enregistrés dans cette ville** et tous les **gossips qu'ils ont écrit**. 
 
-**CONTACT** Accessible depuis la barre de navigation : page fixe ayant un formulaire pour contacter l'équipe (formulaire purement décoratif, il ne fonctionne pas) 
+* Les pages *team* et *contact* depuis la NavBarre sont seulement décoratives. Le formulaire de contact et liens de la team ne mènent à rien (vu que le seed est réinitialisée sur votre PC) 
 
-**PAGES GOSSIPS** Accessible en cliquant sur le lien du gossip ou par : (le dernier numéro pouvant être remplacé par le numéro du gossip voulu) 
-~~~bash 
-http://localhost:4567/gossip/3
-~~~ 
-Où diverses informations du gossip sont inscrits. 
-Vous y trouverez également un lien menant à la page du rédacteur du gossip. 
+* Dans la NavBarre, vous avez un lien vers le formulaire d'**inscription** et un autre vers une page pour vous **connecter**. *Je vous laisse faire des essais et créer autant de compte que vous voulez : l'adresse mail est factice!* 
 
-**PAGES PROFIL** Accessible en cliquant sur le lien du profil ou pas : (le dernier numéro pouvant être remplacé par le numéro du gossip voulu) 
-~~~bash 
-http://localhost:4567/user/8
-~~~ 
-Où diverses informations de l'user sont inscrits. 
+* Une fois connecté, la page Home vous souhaite la bienvenue. Dans la NavBarre, vous avez un lien direct vers **votre propre profil** et un **bouton de deconnexion**. 
 
-**PAGE SECRETE** Accessible uniquement par : (en remplaçant *texte_au_choix* par le texte que vous voulez !) 
-~~~bash
-http://localhost:4567/welcome/texte_au_choix
-~~~
+* Depuis votre page profil, vous avez **vos informations** mais également une liste (avec un lien) vers **tous les gossips que vous avez liké** et un petit récapitulatif de **tous les gossips que vous avez écrit**
 
-*** 
+### Vous pouvez alors :
+* **Poster de nouveaux gossip**
+* **Editer et supprimer vos gossips** (et uniquement les votres ! Sinon vous serez redigez vers une page vous précisant que vous n'avez pas les autorisations)
+* **Poster des commentaires**
+* **Editer et supprimer vos commentaires** (une fois de plus, uniquement les votres !)
+* **Liker et Déliker les gossips** (uniquement depuis la page show de chaque gossip : je n'ai pas réussi à faire autrement) Vous pouvez les liker en cliquant sur le petit *X likes* et si vous recliquez dessus ensuite, cela le "**délike**"
 
-Sur ce, bonne déhambulation sur *The Gossip Project*
+### Voilà ! Vous pouvez vous balader sur le site, créer votre compte et vous amuser à publier, commenter, liker, éditer, supprimer... 
+ 
+***
