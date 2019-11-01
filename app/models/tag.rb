@@ -1,3 +1,3 @@
 class Tag < ApplicationRecord
-    has_many :gossips, dependent: :destroy
+    has_many :gossips
 end

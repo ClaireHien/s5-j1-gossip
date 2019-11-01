@@ -1,0 +1,2 @@
+module LikelikeHelper
+end

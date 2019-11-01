@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'static_page#home'
 
   resources :gossip, except: [:show] do
-  resources :like, only: [:create, :destroy]
+  resources :likelike, only: [:create, :destroy]
   end
   
   resources :comment

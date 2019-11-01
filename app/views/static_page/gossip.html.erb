@@ -12,7 +12,7 @@
 <% city = user.city %>
 <% u = user.id %>
 <% tag = gossip.tag %>
-<% like = Like.where(gossip_id: n) %>
+<% like = Likelike.where(gossip_id: n) %>
 
   <div class="box">
 
@@ -30,16 +30,16 @@
       
       <%else%>
 
-          <% like_exist = Like.find_by(gossip_id: n, user_id: current_user.id) %>
+          <% like_exist = Likelike.find_by(gossip_id: n, user_id: current_user.id) %>
           <%if like_exist != nil %>
 
-        <a href="/gossip/<%= n%>/like/<%= like_exist.id %>" class="badge badge-light" data-method="DELETE">
+        <a href="/gossip/<%= n%>/likelike/<%= like_exist.id %>" class="badge badge-light" data-method="DELETE">
         <span class="badge badge-light">
         <%= like.length %> likes </span>
       </a>
 
           <%else%>
-        <a href="/gossip/<%= n %>/like" class="badge badge-light" data-method="POST">
+        <a href="/gossip/<%= n %>/likelike" class="badge badge-light" data-method="POST">
           <span class="badge badge-light">
           <%= like.length %> likes </span>
         </a>

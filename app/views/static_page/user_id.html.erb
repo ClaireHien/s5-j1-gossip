@@ -49,7 +49,7 @@
   <div class="card-body">
     <blockquote class="blockquote mb-0"><small>
 
-    <% all_like = Like.where(user_id: n) %>
+    <% all_like = Likelike.where(user_id: n) %>
 
     <% all_like.each do |like| %>
     <a href="/gossip/<%= like.gossip.id %>"><%= like.gossip.title %></a><br />
@@ -70,7 +70,7 @@
   <% user = gossip.user %>
   <% tag = gossip.tag %>
   <% com = Comment.where(gossip_id: id)%>
-  <% like = Like.where(gossip_id: id)%>
+  <% like = Likelike.where(gossip_id: id)%>
 
   <div class="card" style="width: 300px; margin:5px;">
   <div class="card-header" style="text-transform:uppercase;"><strong><%= gossip.title %></strong></div>

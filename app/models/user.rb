@@ -2,8 +2,9 @@ class User < ApplicationRecord
 	has_many :gossips, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	belongs_to :city
+  has_many :likelikes, dependent: :destroy
+
   has_secure_password
-  has_many :likes, dependent: :destroy
 
   validates :alias, presence: true
   validates :email, presence: true
